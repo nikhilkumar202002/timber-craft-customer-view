@@ -4,6 +4,7 @@ import CategorySection from "./components/home/CategorySection";
 import FeaturedProducts from "./components/home/FeaturedProducts";
 import WhyChooseUs from "./components/home/WhyChooseUs";
 import Allproducts from "./components/home/Allproducts";
+import CustomArtworkSection from "./components/home/CustomArtworkSection";
 
 export default function HomePage() {
   return (
@@ -11,9 +12,9 @@ export default function HomePage() {
       <HeroSection />
       <CategorySection />
       <FeaturedProducts />
-      <Allproducts />
       <WhyChooseUs />
-
+      <Allproducts />
+      <CustomArtworkSection />
     </div>
   );
 }

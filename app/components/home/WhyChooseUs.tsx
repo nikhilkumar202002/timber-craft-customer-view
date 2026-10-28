@@ -116,6 +116,12 @@ export default function WhyChooseUs({
 
 
           <div className="lg:col-span-7 flex flex-col justify-between text-left pt-6 lg:pt-0 h-full">
+            <div className="inline-flex items-center gap-2 rounded-full bg-amber-100/90 border border-amber-200/70 px-3.5 py-1 w-fit mb-3.5">
+              <span className="size-1.5 rounded-full bg-amber-700" />
+              <span className="text-[11px] font-bold uppercase tracking-widest text-amber-900">
+                {badgeText}
+              </span>
+            </div>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-neutral-900 leading-tight">
               {title}
