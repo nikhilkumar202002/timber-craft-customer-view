@@ -176,12 +176,12 @@ export default function CategorySection({
   const offset = safeIndex * stepWidth;
 
   return (
-    <section className="w-full bg-[#fcfbf9] py-16 sm:py-20 lg:py-24 border-b border-neutral-200/80">
+    <section className="w-full py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* =========================================================
             CENTER ALIGNED CATEGORY HEADING ONLY (NO DESCRIPTION)
            ========================================================= */}
-        <div className="mb-10 sm:mb-14 text-center">
+        <div className="mb-8 sm:mb-10 text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-neutral-900">
             {title}
           </h2>
