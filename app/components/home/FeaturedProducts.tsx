@@ -11,6 +11,7 @@ import {
   FiStar,
   FiCheck,
   FiPlus,
+  FiShoppingBag,
 } from "react-icons/fi";
 import { FaIndianRupeeSign } from "react-icons/fa6";
 
@@ -449,13 +450,14 @@ export default function FeaturedProducts({
                             )}
                           </button>
 
-                          {/* Buy Now Button */}
+                          {/* Buy Now Button with Icon */}
                           <button
                             type="button"
                             onClick={(e) => handleBuyNow(e, item)}
                             className="flex-1 flex items-center justify-center gap-1.5 rounded-xl bg-neutral-950 py-2.5 px-3 text-xs font-semibold text-white transition-all duration-200 hover:bg-neutral-800 active:scale-98 shadow-xs"
                             title="Buy Now"
                           >
+                            <FiShoppingBag className="size-3.5" />
                             <span>Buy Now</span>
                           </button>
                         </div>

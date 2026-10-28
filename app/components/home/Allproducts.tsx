@@ -9,6 +9,7 @@ import {
   FiStar,
   FiCheck,
   FiPlus,
+  FiShoppingBag,
   FiArrowRight,
 } from "react-icons/fi";
 import { FaIndianRupeeSign } from "react-icons/fa6";
@@ -168,7 +169,7 @@ export default function Allproducts({
   };
 
   return (
-    <section className="w-full bg-[#fcfbf9] py-16 sm:py-20 lg:py-24 border-b border-neutral-200/80">
+    <section className="w-full bg-[#fcfbf9] py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* =========================================================
             CENTER ALIGNED SECTION HEADING
@@ -302,13 +303,14 @@ export default function Allproducts({
                         )}
                       </button>
 
-                      {/* Buy Now Button */}
+                      {/* Buy Now Button with Icon */}
                       <button
                         type="button"
                         onClick={(e) => handleBuyNow(e, item)}
                         className="flex-1 flex items-center justify-center gap-1.5 rounded-xl bg-neutral-950 py-2.5 px-3 text-xs font-semibold text-white transition-all duration-200 hover:bg-neutral-800 active:scale-98 shadow-xs"
                         title="Buy Now"
                       >
+                        <FiShoppingBag className="size-3.5" />
                         <span>Buy Now</span>
                       </button>
                     </div>
