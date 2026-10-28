@@ -5,6 +5,7 @@ import FeaturedProducts from "./components/home/FeaturedProducts";
 import WhyChooseUs from "./components/home/WhyChooseUs";
 import Allproducts from "./components/home/Allproducts";
 import CustomArtworkSection from "./components/home/CustomArtworkSection";
+import TestimonialsSection from "./components/home/TestimonialsSection";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <WhyChooseUs />
       <Allproducts />
       <CustomArtworkSection />
+      <TestimonialsSection />
     </div>
   );
 }
