@@ -11,7 +11,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "WoodArtis - Handcrafted Artisanal Woodwork & Sculptures",
+  title: "TimberCraft - Handcrafted Artisanal Woodwork & Sculptures",
   description: "Handcrafted bespoke wooden idols, trophies, wall hangings, and heirloom decor.",
 };
 

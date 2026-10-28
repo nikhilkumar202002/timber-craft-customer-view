@@ -115,7 +115,7 @@ export default function Header() {
                 alt="Timber Craft"
                 width={150}
                 height={46}
-                className="h-9 sm:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+                className="h-10 sm:h-15 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
                 priority
               />
             </Link>
