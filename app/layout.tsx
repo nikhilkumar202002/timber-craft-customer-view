@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import AnnouncementBar from "./components/layout/AnnouncementBar";
 import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -10,8 +11,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Timber Craft",
-  description: "Handcrafted Artisanal Timber & Custom Furniture",
+  title: "WoodArtis - Handcrafted Artisanal Woodwork & Sculptures",
+  description: "Handcrafted bespoke wooden idols, trophies, wall hangings, and heirloom decor.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <AnnouncementBar />
         <Header />
         <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );
