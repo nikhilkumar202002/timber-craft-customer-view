@@ -1,16 +1,10 @@
 "use client";
 
 import React, { useRef, useState, useEffect, useCallback } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import CategoryCard, { CategoryItem } from "../categories/CategoryCard";
 
-export interface CategoryItem {
-  id: number;
-  name: string;
-  slug: string;
-  image: string;
-}
+export type { CategoryItem };
 
 const defaultCategories: CategoryItem[] = [
   {
@@ -98,9 +92,9 @@ export default function CategorySection({
   const getVisibleCount = useCallback(() => {
     if (typeof window === "undefined") return 4;
     if (window.innerWidth >= 1024) return 4; // lg: 4 columns
-    if (window.innerWidth >= 768) return 3;  // md: 3 columns
-    if (window.innerWidth >= 640) return 2;  // sm: 2 columns
-    return 1;                                // xs: 1 column
+    if (window.innerWidth >= 768) return 3; // md: 3 columns
+    if (window.innerWidth >= 640) return 2; // sm: 2 columns
+    return 1; // xs: 1 column
   }, []);
 
   const [visibleCount, setVisibleCount] = useState(4);
@@ -233,28 +227,7 @@ export default function CategorySection({
                   key={item.id}
                   className="w-full sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-2*1.5rem)/3)] lg:w-[calc((100%-3*1.5rem)/4)] shrink-0"
                 >
-                  <Link
-                    href={`/categories/${item.slug}`}
-                    className="group flex flex-col h-full rounded-2xl border border-neutral-200/90 bg-white overflow-hidden shadow-xs transition-all duration-300 hover:shadow-xl hover:border-neutral-300 hover:-translate-y-1"
-                  >
-                    {/* Category Image */}
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
-                      <Image
-                        src={item.image}
-                        alt={item.name}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                        className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
-                      />
-                    </div>
-
-                    {/* Category Heading Only (Center Aligned) */}
-                    <div className="flex flex-1 items-center justify-center p-5 text-center">
-                      <h3 className="text-base sm:text-lg font-bold text-neutral-900 transition-colors group-hover:text-amber-800">
-                        {item.name}
-                      </h3>
-                    </div>
-                  </Link>
+                  <CategoryCard category={item} />
                 </div>
               ))}
             </div>
