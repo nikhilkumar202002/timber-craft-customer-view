@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import {
   FiArrowRight,
   FiEdit3,
@@ -11,6 +10,7 @@ import {
   FiCheckCircle,
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa6";
+import Button from "../ui/Button";
 
 const steps = [
   {
@@ -133,13 +133,16 @@ export default function CustomArtworkSection() {
 
             {/* Right Buttons inside callout */}
             <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
-              <Link
+              <Button
                 href="/custom-artwork/request"
-                className="flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-xs sm:text-sm font-bold text-neutral-950 transition-all duration-200 hover:bg-neutral-100 hover:scale-102 active:scale-98 shadow-md"
+                variant="white"
+                size="lg"
+                rounded="xl"
+                rightIcon={<FiArrowRight className="size-4" />}
+                className="font-bold text-neutral-950"
               >
-                <span>Request Custom Quote</span>
-                <FiArrowRight className="size-4" />
-              </Link>
+                Request Custom Quote
+              </Button>
 
               <a
                 href="https://wa.me/919876543210?text=Hi%20TimberCraft,%20I'd%20like%20to%20discuss%20a%20custom%20woodcraft%20project."

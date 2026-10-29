@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { FiArrowRight, FiShield, FiTruck, FiRotateCcw } from "react-icons/fi";
 import { FaIndianRupeeSign } from "react-icons/fa6";
+import Button from "../ui/Button";
 
 export interface CartSummaryProps {
   subtotal: number;
@@ -114,13 +114,16 @@ export default function CartSummary({
       </div>
 
       {/* Checkout CTA Button */}
-      <Link
+      <Button
         href={checkoutUrl}
-        className="w-full flex items-center justify-center gap-2 rounded-xl bg-neutral-950 py-3.5 px-6 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-neutral-800 hover:scale-[1.01] active:scale-[0.99]"
+        variant="primary"
+        size="lg"
+        rounded="xl"
+        fullWidth
+        rightIcon={<FiArrowRight className="size-4" />}
       >
-        <span>Proceed to Secure Checkout</span>
-        <FiArrowRight className="size-4" />
-      </Link>
+        Proceed to Secure Checkout
+      </Button>
 
       {/* Trust & Assurance Badges */}
       <div className="border-t border-neutral-100 pt-4 space-y-2.5 text-xs text-neutral-500">

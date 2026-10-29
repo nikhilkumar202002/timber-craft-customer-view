@@ -13,6 +13,7 @@ import {
 } from "react-icons/fi";
 import { FaIndianRupeeSign } from "react-icons/fa6";
 import Badge from "../ui/Badge";
+import Button from "../ui/Button";
 
 export interface ProductItem {
   id: number;
@@ -176,39 +177,38 @@ export default function ProductCard({
         {/* Dual Action Buttons: '+ Add' and 'Buy Now' */}
         <div className="mt-4 pt-3.5 border-t border-neutral-100 flex items-center gap-2 w-full">
           {/* Add to Cart button with icon + Add */}
-          <button
+          <Button
             type="button"
+            variant={isAdded ? "success" : "secondary"}
+            size="sm"
+            rounded="xl"
+            className="flex-1"
             onClick={handleAddToCart}
-            className={`flex-1 flex items-center justify-center gap-1.5 rounded-xl border py-2.5 px-3 text-xs font-semibold transition-all duration-200 active:scale-98 shadow-2xs ${
-              isAdded
-                ? "border-emerald-600 bg-emerald-50 text-emerald-700"
-                : "border-neutral-200 bg-white text-neutral-800 hover:border-neutral-950 hover:bg-neutral-50"
-            }`}
+            leftIcon={
+              isAdded ? (
+                <FiCheck className="size-3.5 text-emerald-600" />
+              ) : (
+                <FiPlus className="size-3.5" />
+              )
+            }
             title="Add to Cart"
           >
-            {isAdded ? (
-              <>
-                <FiCheck className="size-3.5 text-emerald-600" />
-                <span>Added</span>
-              </>
-            ) : (
-              <>
-                <FiPlus className="size-3.5" />
-                <span>Add</span>
-              </>
-            )}
-          </button>
+            {isAdded ? "Added" : "Add"}
+          </Button>
 
           {/* Buy Now Button with Icon */}
-          <button
+          <Button
             type="button"
+            variant="primary"
+            size="sm"
+            rounded="xl"
+            className="flex-1"
             onClick={handleBuyNow}
-            className="flex-1 flex items-center justify-center gap-1.5 rounded-xl bg-neutral-950 py-2.5 px-3 text-xs font-semibold text-white transition-all duration-200 hover:bg-neutral-800 active:scale-98 shadow-xs"
+            leftIcon={<FiShoppingBag className="size-3.5" />}
             title="Buy Now"
           >
-            <FiShoppingBag className="size-3.5" />
-            <span>Buy Now</span>
-          </button>
+            Buy Now
+          </Button>
         </div>
       </div>
     </Link>

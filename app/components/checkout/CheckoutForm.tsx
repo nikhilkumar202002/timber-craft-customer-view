@@ -16,6 +16,7 @@ import PaymentMethods, {
   PaymentMethodType,
   PaymentDetails,
 } from "./PaymentMethods";
+import Button from "../ui/Button";
 
 export interface ShippingMethod {
   id: string;

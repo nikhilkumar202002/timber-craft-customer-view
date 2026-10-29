@@ -11,6 +11,7 @@ import {
   FiCheck,
   FiAlertCircle,
 } from "react-icons/fi";
+import Button from "../ui/Button";
 
 export interface AddressData {
   firstName: string;
@@ -654,29 +655,29 @@ export default function AddressForm({
         {/* Submit & Cancel Actions */}
         <div className="pt-4 flex flex-col-reverse sm:flex-row items-center justify-end gap-3 border-t border-neutral-100">
           {onCancel && (
-            <button
+            <Button
               type="button"
+              variant="secondary"
+              size="md"
+              rounded="xl"
               onClick={onCancel}
-              className="w-full sm:w-auto rounded-xl border border-neutral-200 px-5 py-2.5 text-xs font-semibold text-neutral-700 transition-colors hover:bg-neutral-50 active:scale-98"
+              className="w-full sm:w-auto"
             >
               Cancel
-            </button>
+            </Button>
           )}
 
-          <button
+          <Button
             type="submit"
-            disabled={isSubmitting}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-neutral-950 px-7 py-3 text-xs sm:text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-neutral-800 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50"
+            variant="primary"
+            size="md"
+            rounded="xl"
+            isLoading={isSubmitting}
+            leftIcon={<FiCheck className="size-4" />}
+            className="w-full sm:w-auto"
           >
-            {isSubmitting ? (
-              <span>Saving Address...</span>
-            ) : (
-              <>
-                <FiCheck className="size-4" />
-                <span>{submitButtonText}</span>
-              </>
-            )}
-          </button>
+            {submitButtonText}
+          </Button>
         </div>
       </div>
     </form>

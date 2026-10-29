@@ -8,6 +8,7 @@ import {
   FiCheck,
 } from "react-icons/fi";
 import { FaQuoteLeft } from "react-icons/fa6";
+import Button from "../ui/Button";
 
 export interface TestimonialItem {
   id: number;
@@ -253,24 +254,28 @@ export default function TestimonialsSection({
           onTouchEnd={handleTouchEnd}
         >
           {/* Left Arrow Button */}
-          <button
+          <Button
             type="button"
             onClick={prevSlide}
             aria-label="Previous testimonials"
-            className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30 flex size-10 sm:size-12 items-center justify-center rounded-full border border-neutral-200 bg-white/95 text-neutral-800 shadow-md backdrop-blur-xs transition-all duration-200 hover:bg-neutral-950 hover:border-neutral-950 hover:text-white hover:scale-105 active:scale-95"
+            variant="slider"
+            size="slider"
+            className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30"
           >
             <FiChevronLeft className="size-5 sm:size-6" />
-          </button>
+          </Button>
 
           {/* Right Arrow Button */}
-          <button
+          <Button
             type="button"
             onClick={nextSlide}
             aria-label="Next testimonials"
-            className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30 flex size-10 sm:size-12 items-center justify-center rounded-full border border-neutral-200 bg-white/95 text-neutral-800 shadow-md backdrop-blur-xs transition-all duration-200 hover:bg-neutral-950 hover:border-neutral-950 hover:text-white hover:scale-105 active:scale-95"
+            variant="slider"
+            size="slider"
+            className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30"
           >
             <FiChevronRight className="size-5 sm:size-6" />
-          </button>
+          </Button>
 
           {/* Inner overflow-hidden container for smooth translate without scrollbar */}
           <div className="overflow-hidden w-full py-2">

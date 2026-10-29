@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { FiTag, FiCheck, FiX } from "react-icons/fi";
+import Button from "../ui/Button";
 
 export interface CouponFormProps {
   onApplyCoupon?: (code: string) => boolean | Promise<boolean>;
@@ -101,13 +102,16 @@ export default function CouponForm({
               placeholder="e.g. TIMBER10"
               className="flex-1 rounded-xl border border-neutral-200 bg-neutral-50/50 px-3.5 py-2 text-xs uppercase tracking-wider text-neutral-900 placeholder:text-neutral-400 placeholder:normal-case focus:border-neutral-900 focus:bg-white focus:outline-hidden"
             />
-            <button
+            <Button
               type="submit"
-              disabled={!couponCode.trim() || isSubmitting}
-              className="rounded-xl bg-neutral-900 px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-neutral-800 disabled:opacity-40 disabled:hover:bg-neutral-900"
+              variant="primary"
+              size="sm"
+              rounded="xl"
+              disabled={!couponCode.trim()}
+              isLoading={isSubmitting}
             >
-              {isSubmitting ? "Checking..." : "Apply"}
-            </button>
+              Apply
+            </Button>
           </div>
 
           {error && <p className="text-[11px] font-medium text-red-600">{error}</p>}

@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 import ProductCard, { ProductItem } from "../products/ProductCard";
+import Button from "../ui/Button";
 
 export type { ProductItem };
 
@@ -149,13 +149,15 @@ export default function Allproducts({
             BUTTON TO NAVIGATE TO ALL PRODUCTS PAGE
            ========================================================= */}
         <div className="mt-12 sm:mt-16 text-center">
-          <Link
+          <Button
             href={viewAllLink}
-            className="inline-flex items-center justify-center gap-2.5 rounded-full border border-neutral-900 bg-neutral-950 px-8 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-neutral-800 hover:scale-105 active:scale-95"
+            variant="primary"
+            size="lg"
+            rounded="full"
+            rightIcon={<FiArrowRight className="size-4" />}
           >
-            <span>{viewAllText}</span>
-            <FiArrowRight className="size-4" />
-          </Link>
+            {viewAllText}
+          </Button>
         </div>
       </div>
     </section>
