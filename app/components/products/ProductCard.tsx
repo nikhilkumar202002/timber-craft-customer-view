@@ -12,6 +12,7 @@ import {
   FiShoppingBag,
 } from "react-icons/fi";
 import { FaIndianRupeeSign } from "react-icons/fa6";
+import Badge from "../ui/Badge";
 
 export interface ProductItem {
   id: number;
@@ -103,9 +104,14 @@ export default function ProductCard({
 
         {/* Status Badge */}
         {product.badge && (
-          <div className="absolute top-3 left-3 rounded-full bg-neutral-950/80 backdrop-blur-xs px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white shadow-xs">
+          <Badge
+            variant="dark-translucent"
+            size="xs"
+            uppercase
+            className="absolute top-3 left-3"
+          >
             {product.badge}
-          </div>
+          </Badge>
         )}
 
         {/* Wishlist Button */}
