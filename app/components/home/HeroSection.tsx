@@ -8,6 +8,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 export interface BannerSlide {
   id: string | number;
   src: string;
+  mobileSrc?: string;
   alt: string;
   link?: string;
 }
@@ -21,12 +22,14 @@ const defaultBanners: BannerSlide[] = [
   {
     id: 1,
     src: "/banners/wooden_art_banner_2000x900.jpg",
+    mobileSrc: "/banners/Handcrafted Wooden Art Collection.png",
     alt: "Artisanal Wooden Masterpieces & Sculptures",
     link: "/shop",
   },
   {
     id: 2,
     src: "/banners/Handcrafted-Wooden-Essentials-Hero-Banner.jpg",
+    mobileSrc: "/banners/Handcrafted Wooden Essentials.png",
     alt: "Handcrafted Wooden Essentials & Home Decor",
     link: "/collections",
   },
@@ -103,8 +106,8 @@ export default function HeroSection({
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Aspect Ratio Container (2000:900 ratio = 20 / 9 ≈ 2.22) */}
-      <div className="relative w-full aspect-[16/9] sm:aspect-[2/1] lg:aspect-[20/9] max-h-[82vh]">
+      {/* Aspect Ratio Container: 3:4 on mobile (exact match for 1086x1448), 2:1 on sm tablet, 20:9 on lg desktop */}
+      <div className="relative w-full aspect-[3/4] sm:aspect-[2/1] lg:aspect-[20/9] max-h-[85vh]">
         {/* Slides Track */}
         <div
           className="flex h-full w-full transition-transform duration-700 ease-out will-change-transform"
@@ -115,14 +118,41 @@ export default function HeroSection({
           {banners.map((slide, index) => {
             const slideContent = (
               <div className="relative h-full w-full shrink-0">
-                <Image
-                  src={slide.src}
-                  alt={slide.alt}
-                  fill
-                  priority={index === 0}
-                  sizes="100vw"
-                  className="object-cover object-center"
-                />
+                {slide.mobileSrc ? (
+                  <>
+                    {/* Mobile Portrait Banner (< 640px) */}
+                    <div className="relative h-full w-full block sm:hidden">
+                      <Image
+                        src={slide.mobileSrc}
+                        alt={slide.alt}
+                        fill
+                        priority={index === 0}
+                        sizes="(max-width: 640px) 100vw, 1px"
+                        className="object-cover object-center"
+                      />
+                    </div>
+                    {/* Desktop/Tablet Landscape Banner (>= 640px) */}
+                    <div className="relative h-full w-full hidden sm:block">
+                      <Image
+                        src={slide.src}
+                        alt={slide.alt}
+                        fill
+                        priority={index === 0}
+                        sizes="(min-width: 640px) 100vw, 1px"
+                        className="object-cover object-center"
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <Image
+                    src={slide.src}
+                    alt={slide.alt}
+                    fill
+                    priority={index === 0}
+                    sizes="100vw"
+                    className="object-cover object-center"
+                  />
+                )}
               </div>
             );
 

@@ -35,18 +35,18 @@ export default function CategoryCard({
           src={category.image}
           alt={category.name}
           fill
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
         />
       </div>
 
       {/* Category Heading (Center Aligned) */}
-      <div className="flex flex-1 flex-col items-center justify-center p-5 text-center">
-        <h3 className="text-base sm:text-lg font-bold text-neutral-900 transition-colors group-hover:text-amber-800">
+      <div className="flex flex-1 flex-col items-center justify-center p-3 sm:p-5 text-center">
+        <h3 className="text-sm sm:text-base lg:text-lg font-bold text-neutral-900 transition-colors group-hover:text-amber-800 line-clamp-2">
           {category.name}
         </h3>
         {showItemCount && category.itemCount !== undefined && (
-          <p className="mt-1 text-xs text-neutral-500">
+          <p className="mt-1 text-[11px] sm:text-xs text-neutral-500">
             {category.itemCount} {category.itemCount === 1 ? "Product" : "Products"}
           </p>
         )}

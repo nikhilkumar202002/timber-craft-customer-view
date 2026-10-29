@@ -94,8 +94,7 @@ export default function CategorySection({
     if (typeof window === "undefined") return 4;
     if (window.innerWidth >= 1024) return 4; // lg: 4 columns
     if (window.innerWidth >= 768) return 3; // md: 3 columns
-    if (window.innerWidth >= 640) return 2; // sm: 2 columns
-    return 1; // xs: 1 column
+    return 2; // sm & mobile (xs): 2 columns
   }, []);
 
   const [visibleCount, setVisibleCount] = useState(4);
@@ -201,9 +200,9 @@ export default function CategorySection({
             aria-label="Previous category"
             variant="slider"
             size="slider"
-            className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30"
+            className="absolute -left-2 sm:-left-5 top-1/2 -translate-y-1/2 z-30 size-8 sm:size-12 shadow-md"
           >
-            <FiChevronLeft className="size-5 sm:size-6" />
+            <FiChevronLeft className="size-4 sm:size-6" />
           </Button>
 
           {/* Right Arrow Button */}
@@ -213,16 +212,16 @@ export default function CategorySection({
             aria-label="Next category"
             variant="slider"
             size="slider"
-            className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30"
+            className="absolute -right-2 sm:-right-5 top-1/2 -translate-y-1/2 z-30 size-8 sm:size-12 shadow-md"
           >
-            <FiChevronRight className="size-5 sm:size-6" />
+            <FiChevronRight className="size-4 sm:size-6" />
           </Button>
 
           {/* Inner overflow-hidden container to hide any scrollbar */}
           <div className="overflow-hidden w-full py-2">
             <div
               ref={trackRef}
-              className="flex gap-6 transition-transform duration-500 ease-out will-change-transform"
+              className="flex gap-3 sm:gap-6 transition-transform duration-500 ease-out will-change-transform"
               style={{
                 transform: `translateX(-${offset}px)`,
               }}
@@ -230,7 +229,7 @@ export default function CategorySection({
               {categories.map((item) => (
                 <div
                   key={item.id}
-                  className="w-full sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-2*1.5rem)/3)] lg:w-[calc((100%-3*1.5rem)/4)] shrink-0"
+                  className="w-[calc((100%-0.75rem)/2)] sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-2*1.5rem)/3)] lg:w-[calc((100%-3*1.5rem)/4)] shrink-0"
                 >
                   <CategoryCard category={item} />
                 </div>

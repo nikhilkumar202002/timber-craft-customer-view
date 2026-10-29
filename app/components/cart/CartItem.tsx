@@ -95,7 +95,7 @@ export default function CartItem({
     <div className="group relative flex flex-col sm:flex-row gap-4 sm:gap-6 p-4 sm:p-5 bg-white border border-neutral-200/90 rounded-2xl shadow-xs transition-all duration-200 hover:border-neutral-300 hover:shadow-sm">
       {/* Product Thumbnail */}
       <Link
-        href={`/product/${item.slug}`}
+        href={`/products/${item.slug}`}
         className="relative size-24 sm:size-28 lg:size-32 rounded-xl overflow-hidden bg-neutral-100 shrink-0 border border-neutral-100/80"
       >
         <Image
@@ -124,7 +124,7 @@ export default function CartItem({
             )}
 
             <h3 className="text-base sm:text-lg font-bold text-neutral-900 transition-colors hover:text-amber-800 line-clamp-2">
-              <Link href={`/product/${item.slug}`}>{item.name}</Link>
+              <Link href={`/products/${item.slug}`}>{item.name}</Link>
             </h3>
 
             {/* Hardwood & Customization Specs */}

@@ -11,6 +11,7 @@ import ProductSort, { SortOption } from "../components/products/ProductSort";
 import ProductGrid from "../components/products/ProductGrid";
 import { ProductItem } from "../components/products/ProductCard";
 import Button from "../components/ui/Button";
+import EmptyState from "../components/ui/EmptyState";
 
 interface ShopProductItem extends ProductItem {
   woodType?: string;
@@ -352,29 +353,17 @@ export default function ShopPage() {
               products={filteredProducts}
               columns={3}
               emptyState={
-                <div className="rounded-3xl border border-neutral-200/90 bg-white p-12 text-center shadow-xs">
-                  <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-2xl bg-amber-50 text-amber-800">
-                    <FiShoppingBag className="size-6" />
-                  </div>
-                  <h3 className="text-base font-bold text-neutral-900">
-                    No Matching Handcrafted Pieces
-                  </h3>
-                  <p className="mt-1.5 text-xs text-neutral-500 max-w-sm mx-auto">
-                    We couldn&apos;t find any wooden pieces matching all your selected
-                    filters. Try broadening your criteria or reset filters.
-                  </p>
-                  <div className="mt-5">
-                    <Button
-                      type="button"
-                      variant="primary"
-                      size="sm"
-                      rounded="full"
-                      onClick={() => setFilters(initialFilterState)}
-                    >
-                      Reset All Filters
-                    </Button>
-                  </div>
-                </div>
+                <EmptyState
+                  variant="card"
+                  icon={<FiShoppingBag className="size-7" />}
+                  title="No Matching Handcrafted Pieces"
+                  description="We couldn't find any wooden pieces matching all your selected filters. Try broadening your criteria or reset filters."
+                  action={{
+                    label: "Reset All Filters",
+                    onClick: () => setFilters(initialFilterState),
+                    variant: "primary",
+                  }}
+                />
               }
             />
           </div>

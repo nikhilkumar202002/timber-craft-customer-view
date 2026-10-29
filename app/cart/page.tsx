@@ -6,6 +6,7 @@ import CartItem, { CartItemType } from "../components/cart/CartItem";
 import CartSummary from "../components/cart/CartSummary";
 import CouponForm from "../components/cart/CouponForm";
 import Button from "../components/ui/Button";
+import EmptyState from "../components/ui/EmptyState";
 
 const defaultCartItems: CartItemType[] = [
   {
@@ -137,28 +138,16 @@ export default function CartPage() {
 
         {/* Empty Cart State */}
         {cartItems.length === 0 ? (
-          <div className="mx-auto max-w-md text-center py-16 sm:py-24">
-            <div className="mx-auto mb-5 flex size-20 items-center justify-center rounded-full bg-amber-50 text-amber-800">
-              <FiShoppingBag className="size-9" />
-            </div>
-            <h2 className="text-xl font-bold text-neutral-900">
-              Your Artisanal Cart is Empty
-            </h2>
-            <p className="mt-2 text-sm text-neutral-500">
-              Discover our master carvers&apos; latest bespoke wooden idols, wall
-              reliefs, and heirloom home goods.
-            </p>
-            <div className="mt-6">
-              <Button
-                href="/shop"
-                variant="primary"
-                size="lg"
-                rounded="full"
-              >
-                Explore Hardwood Collections
-              </Button>
-            </div>
-          </div>
+          <EmptyState
+            icon={<FiShoppingBag className="size-8 sm:size-9" />}
+            title="Your Artisanal Cart is Empty"
+            description="Discover our master carvers' latest bespoke wooden idols, wall reliefs, and heirloom home goods."
+            action={{
+              label: "Explore Hardwood Collections",
+              href: "/shop",
+              variant: "primary",
+            }}
+          />
         ) : (
           /* Cart Layout: Two Columns (Left Items, Right Summary) */
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
