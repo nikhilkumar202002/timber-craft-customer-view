@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiPlus, FiMinus, FiTrash2, FiHeart } from "react-icons/fi";
 import { FaIndianRupeeSign } from "react-icons/fa6";
+import Button from "../ui/Button";
 
 export interface CartItemType {
   id: string | number;
@@ -226,35 +227,41 @@ export default function CartItem({
 
           {/* Action Links: Move to Wishlist & Remove Item */}
           <div className="flex items-center gap-2 sm:gap-4 text-xs font-semibold">
-            <button
+            <Button
               type="button"
+              variant={isWishlisted ? "danger" : "ghost"}
+              size="xs"
+              rounded="lg"
               onClick={handleToggleWishlist}
-              className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 transition-colors ${
+              leftIcon={
+                <FiHeart
+                  className={`size-3.5 ${
+                    isWishlisted ? "fill-red-600 text-red-600" : ""
+                  }`}
+                />
+              }
+              className={
                 isWishlisted
-                  ? "text-red-600 bg-red-50"
-                  : "text-neutral-600 hover:text-neutral-950 hover:bg-neutral-100"
-              }`}
+                  ? "bg-red-50 text-red-600 border-transparent hover:bg-red-100"
+                  : ""
+              }
             >
-              <FiHeart
-                className={`size-3.5 ${
-                  isWishlisted ? "fill-red-600 text-red-600" : ""
-                }`}
-              />
-              <span>
-                {isWishlisted ? "Saved in Wishlist" : "Save for Later"}
-              </span>
-            </button>
+              {isWishlisted ? "Saved in Wishlist" : "Save for Later"}
+            </Button>
 
             <span className="text-neutral-200">|</span>
 
-            <button
+            <Button
               type="button"
+              variant="ghost"
+              size="xs"
+              rounded="lg"
               onClick={handleRemove}
-              className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-neutral-500 transition-colors hover:text-red-600 hover:bg-red-50"
+              leftIcon={<FiTrash2 className="size-3.5" />}
+              className="text-neutral-500 hover:text-red-600 hover:bg-red-50"
             >
-              <FiTrash2 className="size-3.5" />
-              <span>Remove</span>
-            </button>
+              Remove
+            </Button>
           </div>
         </div>
       </div>

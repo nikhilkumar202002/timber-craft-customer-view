@@ -142,14 +142,16 @@ export default function CheckoutForm({
                 1. Delivery Address Confirmed
               </h3>
             </div>
-            <button
+            <Button
               type="button"
+              variant="ghost"
+              size="xs"
+              rounded="lg"
               onClick={() => setCurrentStep("address")}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-600 hover:text-neutral-950 transition-colors"
+              leftIcon={<FiEdit3 className="size-3.5" />}
             >
-              <FiEdit3 className="size-3.5" />
-              <span>Edit Address</span>
-            </button>
+              Edit Address
+            </Button>
           </div>
 
           {savedAddress && (
@@ -266,27 +268,21 @@ export default function CheckoutForm({
               </span>
             </div>
 
-            <button
+            <Button
               type="button"
+              variant="primary"
+              size="lg"
+              rounded="xl"
+              fullWidth
+              isLoading={isProcessing}
               onClick={handlePlaceOrder}
-              disabled={isProcessing}
-              className="w-full flex items-center justify-center gap-2.5 rounded-xl bg-neutral-950 py-4 px-6 text-sm sm:text-base font-bold text-white shadow-lg transition-all duration-200 hover:bg-neutral-800 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60"
+              leftIcon={<FiLock className="size-4" />}
+              rightIcon={<FiArrowRight className="size-4" />}
+              className="py-4 text-sm sm:text-base shadow-lg"
             >
-              {isProcessing ? (
-                <span>Securing Your Handcrafted Order...</span>
-              ) : (
-                <>
-                  <FiLock className="size-4" />
-                  <span>
-                    Pay &amp; Place Order • ₹
-                    {(totalAmount + selectedShipping.cost).toLocaleString(
-                      "en-IN"
-                    )}
-                  </span>
-                  <FiArrowRight className="size-4" />
-                </>
-              )}
-            </button>
+              Pay &amp; Place Order • ₹
+              {(totalAmount + selectedShipping.cost).toLocaleString("en-IN")}
+            </Button>
           </div>
         </>
       )}

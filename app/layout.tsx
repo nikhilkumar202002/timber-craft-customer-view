@@ -13,6 +13,15 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "TimberCraft - Handcrafted Artisanal Woodwork & Sculptures",
   description: "Handcrafted bespoke wooden idols, trophies, wall hangings, and heirloom decor.",
+  icons: {
+    icon: [
+      { url: "/logo/main-logo-white.png" },
+      { url: "/logo/main-logo-white.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo/main-logo-white.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/logo/main-logo-white.png",
+    apple: "/logo/main-logo-white.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

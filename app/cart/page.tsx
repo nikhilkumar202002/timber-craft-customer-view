@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { FiShoppingBag, FiArrowLeft, FiTrash2 } from "react-icons/fi";
 import CartItem, { CartItemType } from "../components/cart/CartItem";
 import CartSummary from "../components/cart/CartSummary";
 import CouponForm from "../components/cart/CouponForm";
+import Button from "../components/ui/Button";
 
 const defaultCartItems: CartItemType[] = [
   {
@@ -100,23 +100,26 @@ export default function CartPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Navigation Breadcrumb / Back Link */}
         <div className="mb-6 flex items-center justify-between">
-          <Link
+          <Button
             href="/shop"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-neutral-600 hover:text-neutral-950 transition-colors"
+            variant="ghost"
+            size="sm"
+            leftIcon={<FiArrowLeft className="size-4" />}
           >
-            <FiArrowLeft className="size-4" />
-            <span>Continue Shopping</span>
-          </Link>
+            Continue Shopping
+          </Button>
 
           {cartItems.length > 0 && (
-            <button
+            <Button
               type="button"
+              variant="ghost"
+              size="xs"
               onClick={handleClearCart}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-400 hover:text-red-600 transition-colors"
+              leftIcon={<FiTrash2 className="size-3.5" />}
+              className="text-neutral-500 hover:text-red-600"
             >
-              <FiTrash2 className="size-3.5" />
-              <span>Clear Cart</span>
-            </button>
+              Clear Cart
+            </Button>
           )}
         </div>
 
@@ -146,12 +149,14 @@ export default function CartPage() {
               reliefs, and heirloom home goods.
             </p>
             <div className="mt-6">
-              <Link
+              <Button
                 href="/shop"
-                className="inline-flex items-center justify-center rounded-full bg-neutral-950 px-8 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-neutral-800 hover:scale-105 active:scale-95"
+                variant="primary"
+                size="lg"
+                rounded="full"
               >
                 Explore Hardwood Collections
-              </Link>
+              </Button>
             </div>
           </div>
         ) : (

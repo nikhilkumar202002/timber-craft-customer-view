@@ -1,7 +1,6 @@
 "use client";
 
 import React, { Suspense } from "react";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import {
   FiCheckCircle,
@@ -10,6 +9,7 @@ import {
   FiArrowRight,
   FiHome,
 } from "react-icons/fi";
+import Button from "../../components/ui/Button";
 
 function SuccessContent() {
   const searchParams = useSearchParams();
@@ -100,20 +100,26 @@ function SuccessContent() {
 
       {/* Action Buttons */}
       <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Link
+        <Button
           href="/shop"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-neutral-950 px-8 py-3.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-neutral-800 hover:scale-105 active:scale-95"
+          variant="primary"
+          size="lg"
+          rounded="full"
+          rightIcon={<FiArrowRight className="size-4" />}
+          className="w-full sm:w-auto"
         >
-          <span>Continue Shopping</span>
-          <FiArrowRight className="size-4" />
-        </Link>
-        <Link
+          Continue Shopping
+        </Button>
+        <Button
           href="/"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-neutral-300 bg-white px-7 py-3.5 text-sm font-semibold text-neutral-700 shadow-2xs transition-all hover:bg-neutral-50 active:scale-95"
+          variant="secondary"
+          size="lg"
+          rounded="full"
+          leftIcon={<FiHome className="size-4" />}
+          className="w-full sm:w-auto"
         >
-          <FiHome className="size-4" />
-          <span>Back to Home</span>
-        </Link>
+          Back to Home
+        </Button>
       </div>
     </div>
   );
