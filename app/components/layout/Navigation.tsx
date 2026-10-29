@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FiChevronDown, FiArrowRight } from "react-icons/fi";
@@ -148,7 +148,7 @@ interface NavigationProps {
   items?: NavItem[];
 }
 
-export default function Navigation({
+function NavigationInner({
   className = "",
   items = navigationItems,
 }: NavigationProps) {
@@ -312,5 +312,20 @@ export default function Navigation({
         );
       })}
     </nav>
+  );
+}
+
+export default function Navigation(props: NavigationProps) {
+  return (
+    <Suspense
+      fallback={
+        <nav
+          aria-label="Desktop Navigation Menu"
+          className={`hidden lg:flex items-center gap-5 xl:gap-7 ${props.className || ""}`}
+        />
+      }
+    >
+      <NavigationInner {...props} />
+    </Suspense>
   );
 }
