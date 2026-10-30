@@ -99,7 +99,7 @@ export default function ProductCard({
           src={product.image}
           alt={product.name}
           fill
-          sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
         />
 
@@ -109,7 +109,7 @@ export default function ProductCard({
             variant="dark-translucent"
             size="xs"
             uppercase
-            className="absolute top-2 left-2 sm:top-3 sm:left-3"
+            className="absolute top-3 left-3"
           >
             {product.badge}
           </Badge>
@@ -120,34 +120,34 @@ export default function ProductCard({
           type="button"
           onClick={handleToggleWishlist}
           aria-label={isLiked ? "Remove from wishlist" : "Add to wishlist"}
-          className={`absolute top-2 right-2 sm:top-3 sm:right-3 flex size-7 sm:size-8 items-center justify-center rounded-full backdrop-blur-xs transition-all duration-200 ${
+          className={`absolute top-3 right-3 flex size-8 items-center justify-center rounded-full backdrop-blur-xs transition-all duration-200 ${
             isLiked
               ? "bg-red-50 text-red-600 scale-105"
               : "bg-white/80 text-neutral-600 hover:bg-white hover:text-red-600 hover:scale-105"
           }`}
         >
           <FiHeart
-            className={`size-3.5 sm:size-4 ${isLiked ? "fill-red-600 text-red-600" : ""}`}
+            className={`size-4 ${isLiked ? "fill-red-600 text-red-600" : ""}`}
           />
         </button>
       </div>
 
       {/* Product Details (LEFT-ALIGNED) */}
-      <div className="flex flex-1 flex-col items-start justify-between p-3 sm:p-5 text-left">
+      <div className="flex flex-1 flex-col items-start justify-between p-5 text-left">
         <div className="flex flex-col items-start w-full">
           {/* Category Tag */}
-          <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-neutral-400 mb-1 text-left">
+          <span className="text-[11px] font-medium uppercase tracking-wider text-neutral-400 mb-1 text-left">
             {product.category}
           </span>
 
           {/* Product Title (Left-aligned) */}
-          <h3 className="text-sm sm:text-base font-bold text-neutral-900 transition-colors group-hover:text-amber-800 line-clamp-2 text-left">
+          <h3 className="text-base font-bold text-neutral-900 transition-colors group-hover:text-amber-800 line-clamp-2 text-left">
             {product.name}
           </h3>
 
           {/* Rating Stars (Left-aligned) */}
-          <div className="mt-1.5 sm:mt-2 flex items-center justify-start gap-1 text-[11px] sm:text-xs text-amber-500">
-            <FiStar className="size-3 sm:size-3.5 fill-amber-400 text-amber-400" />
+          <div className="mt-2 flex items-center justify-start gap-1 text-xs text-amber-500">
+            <FiStar className="size-3.5 fill-amber-400 text-amber-400" />
             <span className="font-semibold text-neutral-800">
               {product.rating.toFixed(1)}
             </span>
@@ -155,19 +155,19 @@ export default function ProductCard({
           </div>
 
           {/* Price with Rupee Icon (Left-aligned) */}
-          <div className="mt-2 sm:mt-2.5 flex items-baseline gap-1.5 sm:gap-2 text-left flex-wrap">
-            <span className="flex items-center text-base sm:text-lg font-bold text-neutral-950">
-              <FaIndianRupeeSign className="size-3 sm:size-3.5 mr-0.5 inline-block text-neutral-950" />
+          <div className="mt-2.5 flex items-baseline gap-2 text-left flex-wrap">
+            <span className="flex items-center text-lg font-bold text-neutral-950">
+              <FaIndianRupeeSign className="size-3.5 mr-0.5 inline-block text-neutral-950" />
               {product.price.toLocaleString("en-IN")}
             </span>
             {product.originalPrice && (
-              <span className="flex items-center text-[11px] sm:text-xs text-neutral-400 line-through">
-                <FaIndianRupeeSign className="size-2 sm:size-2.5 mr-0.5 inline-block text-neutral-400" />
+              <span className="flex items-center text-xs text-neutral-400 line-through">
+                <FaIndianRupeeSign className="size-2.5 mr-0.5 inline-block text-neutral-400" />
                 {product.originalPrice.toLocaleString("en-IN")}
               </span>
             )}
             {product.originalPrice && discountPercent > 0 && (
-              <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-600">
+              <span className="text-[11px] font-semibold text-emerald-600">
                 {discountPercent}% off
               </span>
             )}
@@ -175,20 +175,20 @@ export default function ProductCard({
         </div>
 
         {/* Dual Action Buttons: '+ Add' and 'Buy Now' */}
-        <div className="mt-3 pt-3 sm:mt-4 sm:pt-3.5 border-t border-neutral-100 flex items-center gap-1.5 sm:gap-2 w-full">
+        <div className="mt-4 pt-3.5 border-t border-neutral-100 flex items-center gap-2 w-full">
           {/* Add to Cart button with icon + Add */}
           <Button
             type="button"
             variant={isAdded ? "success" : "secondary"}
             size="sm"
             rounded="xl"
-            className="flex-1 !px-2 !py-2 sm:!px-3.5 sm:!py-2.5 text-xs"
+            className="flex-1"
             onClick={handleAddToCart}
             leftIcon={
               isAdded ? (
-                <FiCheck className="size-3 sm:size-3.5 text-emerald-600" />
+                <FiCheck className="size-3.5 text-emerald-600" />
               ) : (
-                <FiPlus className="size-3 sm:size-3.5" />
+                <FiPlus className="size-3.5" />
               )
             }
             title="Add to Cart"
@@ -202,9 +202,9 @@ export default function ProductCard({
             variant="primary"
             size="sm"
             rounded="xl"
-            className="flex-1 !px-2 !py-2 sm:!px-3.5 sm:!py-2.5 text-xs"
+            className="flex-1"
             onClick={handleBuyNow}
-            leftIcon={<FiShoppingBag className="size-3 sm:size-3.5" />}
+            leftIcon={<FiShoppingBag className="size-3.5" />}
             title="Buy Now"
           >
             Buy Now

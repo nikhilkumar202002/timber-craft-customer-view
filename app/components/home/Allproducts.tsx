@@ -135,9 +135,9 @@ export default function Allproducts({
         </div>
 
         {/* =========================================================
-            PRODUCT GRID: 2 COLUMNS ON MOBILE, UP TO 4 ON DESKTOP
+            PRODUCT GRID: 4 COLUMNS X 2 ROWS (8 PRODUCTS)
            ========================================================= */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {displayProducts.map((item) => (
             <div key={item.id} className="w-full">
               <ProductCard product={item} />
